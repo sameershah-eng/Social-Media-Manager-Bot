@@ -1,0 +1,731 @@
+# MASTER BUILD PROMPT: SocialFlow Studio — Automated Social Media Management Platform
+
+Act as a senior full-stack engineer, product designer, SaaS architect, and UX specialist. Build a complete, functional, production-oriented social media management web application using React that satisfies every requirement in the client brief below.
+
+Do not create a static landing page, a simple dashboard mockup, or a collection of non-functional UI cards. Build an interactive application with working navigation, state management, forms, scheduling, content management, engagement workflows, analytics, settings, and data export.
+
+The final product should look like a premium SaaS product designed by an experienced human product team. It must feel refined, distinctive, intuitive, and ready for a client demonstration.
+
+## 1. Product vision
+
+Create a social media automation platform that manages TikTok and Facebook accounts from one unified workspace.
+
+The platform must allow the user to:
+
+- Create, organize, schedule, and publish social media content.
+- Maintain a daily posting schedule for TikTok and Facebook.
+- Review and manage incoming comments and direct messages.
+- Configure AI-assisted and template-based responses.
+- Flag sensitive or important conversations for manual review.
+- Monitor reach, impressions, follower growth, engagement, and top-performing posts.
+- Export analytics to Google Sheets or CSV.
+- Manage account connections, automation settings, response templates, and keyword triggers.
+- Review activity logs and identify failed or pending actions.
+
+Use the application name “SocialFlow Studio” throughout the interface.
+
+## 2. Required technology stack
+
+Use the following architecture:
+
+Frontend:
+- React with TypeScript.
+- Vite or the supported React build environment.
+- Tailwind CSS for styling.
+- Lucide React for consistent icons.
+- Framer Motion for tasteful transitions and animations.
+- Recharts for interactive analytics charts.
+- React Router for page navigation if the environment supports it.
+
+Backend:
+- Node.js with Express, or the supported server-side framework available in the environment.
+- A modular service layer for platform integrations.
+- Persistent database storage, preferably PostgreSQL or Supabase when available.
+- Environment variables for all credentials and API secrets.
+- Server-side API routes for sensitive operations.
+- Proper validation, error handling, loading states, and user feedback.
+
+If the Google AI Studio environment does not support a separate backend or a particular dependency, implement the closest supported architecture without breaking the application. Clearly isolate backend-dependent functionality.
+
+Do not expose access tokens, API keys, or OAuth secrets in frontend code.
+
+## 3. Visual design direction
+
+The application must use a sophisticated light theme with a premium, modern visual identity.
+
+Avoid generic AI-generated dashboard aesthetics, excessive gradients, oversized headings, unnecessary glassmorphism, and repetitive rounded cards.
+
+Design inspiration: a combination of Linear's precision, Stripe's visual clarity, and a polished modern social media management product. Do not copy their exact interfaces.
+
+### Color palette
+
+Use a restrained, harmonious palette:
+
+- Main background: warm off-white, approximately #F8FAFC.
+- Primary surface: white, #FFFFFF.
+- Main text: deep navy, approximately #172033.
+- Secondary text: muted slate, approximately #64748B.
+- Primary accent: elegant indigo, approximately #635BFF.
+- Secondary accent: soft blue, approximately #45A6F5.
+- Supporting accent: subtle violet, approximately #A78BFA.
+- Success: refined green.
+- Warning: warm amber.
+- Error: muted red.
+
+Use gradient colors sparingly for primary actions, active states, chart highlights, selected navigation items, and small decorative details.
+
+Preferred gradient:
+Indigo → blue → soft violet.
+
+Use subtle borders, layered shadows, carefully controlled radii, balanced whitespace, and crisp typography.
+
+### Typography
+
+Use Inter or a similarly clean professional sans-serif font.
+
+Create a clear hierarchy:
+- Compact page titles.
+- Readable section headings.
+- Strong KPI values.
+- Subtle helper text.
+- Consistent label sizes.
+- Comfortable line heights.
+
+### Layout
+
+Build a responsive SaaS dashboard with:
+
+1. A fixed or collapsible left sidebar.
+2. A slim top navigation bar.
+3. A central content workspace.
+4. Contextual action buttons.
+5. A responsive layout for tablet and mobile.
+
+Sidebar navigation:
+- Overview
+- Content Studio
+- Publishing Calendar
+- Engagement Inbox
+- Analytics
+- Automation Rules
+- Response Templates
+- Connected Accounts
+- Activity Logs
+- Settings
+
+Show the SocialFlow Studio logo and a small, tasteful gradient icon in the sidebar.
+
+The top bar should contain:
+- Current workspace selector.
+- Connected account summary.
+- Search or quick navigation.
+- Notification icon.
+- User profile menu.
+
+Use consistent active navigation styling and preserve the current page when interacting with the sidebar.
+
+## 4. Motion and interaction quality
+
+Animations must feel deliberate, premium, and human-designed rather than decorative.
+
+Implement:
+- Smooth page transitions.
+- Sidebar expand and collapse animations.
+- Subtle hover elevation on interactive cards.
+- Animated KPI values when data loads.
+- Gentle chart reveal animations.
+- Smooth modal and drawer transitions.
+- Animated dropdowns and tooltips.
+- Calendar drag-and-drop where feasible.
+- Loading skeletons instead of blank screens.
+- Toast notifications for successful actions and errors.
+- Smooth tab switching.
+- Subtle button press feedback.
+- Animated status indicators for active automation.
+
+Keep animation durations generally between 150 and 350 milliseconds. Use natural easing curves.
+
+Avoid constant bouncing, spinning decorative objects, excessive floating elements, and animations that interfere with usability.
+
+Respect reduced-motion preferences.
+
+Every interactive control must perform a meaningful action. Do not add buttons that look functional but do nothing.
+
+## 5. Dashboard overview
+
+Create a premium overview page that communicates the state of the entire social media operation at a glance.
+
+Header:
+“Your social presence, on autopilot.”
+
+Subtitle:
+“Plan content, nurture conversations, and understand performance from one workspace.”
+
+Primary actions:
+- Create Post
+- Schedule Content
+- View Inbox
+
+### KPI cards
+
+Display:
+- Total Reach
+- Total Impressions
+- Total Followers
+- Engagement Rate
+- Posts Published
+- Pending Conversations
+
+Each card should contain:
+- A clear label.
+- A prominent value.
+- A comparison with the previous period when data is available.
+- A subtle icon.
+- A miniature sparkline or trend indicator where appropriate.
+
+Distinguish real connected-account metrics from sample demonstration data. Never imply that sample data is live.
+
+### Dashboard sections
+
+Include:
+- Reach and impressions trend chart.
+- Follower growth chart.
+- Recent published posts.
+- Upcoming scheduled posts.
+- Recent comments and DMs.
+- Automation status.
+- Recent publishing failures or warnings.
+- A platform comparison between TikTok and Facebook.
+
+Provide date filters for 7 days, 30 days, 90 days, and a custom range.
+
+Use realistic, clearly labeled demo data when API connections are unavailable.
+
+## 6. Connected accounts
+
+Create a dedicated account management page with separate TikTok and Facebook account cards.
+
+Each card should show:
+- Platform icon.
+- Account name and username when available.
+- Connection status.
+- Last successful sync.
+- Available permissions.
+- Last publishing activity.
+- Reconnect or disconnect actions.
+
+Implement the connection architecture using official platform APIs and OAuth wherever supported.
+
+TikTok:
+Use the appropriate TikTok developer APIs, including Login Kit and Content Posting API where the application and account are eligible.
+
+Facebook:
+Use Meta's official OAuth and Graph API, including the appropriate Pages permissions and publishing endpoints.
+
+Request only the permissions needed for the requested features. Handle permission denial, expired tokens, revoked access, and unsupported account types.
+
+Do not assume that connecting an ordinary Facebook profile automatically grants permission to publish to a Page.
+
+For TikTok, respect creator authorization, content-sharing requirements, posting permissions, upload restrictions, and any required user confirmation.
+
+Show clear setup instructions and connection diagnostics.
+
+Important: If credentials, developer app approval, account permissions, or API access are missing, display a clear “Demo Mode” or “Connection Required” status. Never fabricate a successful OAuth connection.
+
+Provide an integration status page explaining which features are available, require permissions, or are waiting for API configuration.
+
+## 7. Content Studio
+
+Build a fully interactive content creation workspace.
+
+The post composer should include:
+- Platform selection: TikTok, Facebook, or both.
+- Caption editor.
+- Hashtag input.
+- Media upload interface.
+- Media preview.
+- Post title or internal content name.
+- Scheduled date and time.
+- Time zone selection.
+- Content category.
+- Draft, scheduled, and published states.
+- Save Draft.
+- Schedule Post.
+- Publish Now.
+- Preview Post.
+
+When both platforms are selected, allow platform-specific caption and media adjustments.
+
+Display platform-specific validation messages for missing media, invalid formats, caption limits, or unsupported publishing options.
+
+Implement a content queue with:
+- Drag-and-drop reordering.
+- Next publishing time.
+- Platform badges.
+- Content status.
+- Edit, duplicate, reschedule, and delete actions.
+- Search and filtering.
+- Bulk selection where appropriate.
+
+Use a reliable scheduling architecture. Persist scheduled posts in the backend, process them using a scheduler or queue worker, and record every publishing attempt.
+
+Do not rely on browser timers to publish content when the user closes the application.
+
+For real publishing, use the appropriate authorized API and save the returned platform post ID and URL when available.
+
+If publishing is unavailable in demo mode, allow the user to simulate a publishing workflow but clearly mark it as simulated. Never report simulated posts as actually published.
+
+## 8. Publishing calendar
+
+Create a visually refined calendar with:
+- Month view.
+- Week view.
+- Day view.
+- Platform filters.
+- Status filters.
+- Previous and next period navigation.
+- Today shortcut.
+- Drag-and-drop rescheduling.
+- Quick-create post action.
+
+Represent posts using subtle platform-specific colors and status indicators.
+
+Selecting a calendar item should open a side drawer containing its content, media preview, platform, publishing time, status, and available actions.
+
+Support scheduled, draft, published, failed, and needs-review states.
+
+Persist all scheduling changes.
+
+## 9. Engagement inbox
+
+Build a unified inbox for comments and direct messages from connected platforms wherever the relevant official APIs provide access.
+
+Include:
+- All Conversations.
+- Comments.
+- Direct Messages.
+- Unread.
+- Needs Review.
+- Replied.
+- Archived.
+
+Each conversation row should show:
+- Profile or account identifier when available.
+- Platform.
+- Message or comment preview.
+- Timestamp.
+- Conversation status.
+- Assigned handling mode.
+- Priority indicator.
+
+The conversation detail view should show the available conversation history, the incoming message, a reply composer, suggested responses, and internal review notes.
+
+Actions:
+- Reply.
+- Mark as Read.
+- Flag for Review.
+- Assign Manual Review.
+- Archive.
+- Mark Resolved.
+
+Implement search and filtering by platform, status, keyword, and date.
+
+### Automated responses
+
+Build a configurable reply engine supporting:
+
+1. Exact keyword matches.
+2. Case-insensitive keyword matching.
+3. Phrase matching.
+4. Priority rules.
+5. Default fallback responses.
+6. AI-assisted reply suggestions.
+7. Human-review requirements.
+8. Duplicate-response protection.
+
+Example rules:
+
+Keyword: pricing, price, cost
+Response: “Thanks for reaching out! Please share which service you're interested in, and we'll help you with the details.”
+
+Keyword: hours, opening, open
+Response: “Thanks for your message! Please check our latest business hours or let us know what information you need.”
+
+Keyword: refund, complaint, issue
+Action: Flag for human review. Do not automatically send a generic resolution.
+
+Keyword: partnership, collaboration
+Action: Generate a suggested response and request approval.
+
+Allow users to add, edit, enable, disable, reorder, and delete rules.
+
+For AI-assisted replies, create a provider abstraction so an authorized LLM can generate contextual suggestions using server-side credentials. Allow the user to review and approve replies before sending.
+
+Include configurable automatic-reply policies:
+- Suggestions only.
+- Automatic replies for approved rules.
+- Human approval required for all replies.
+
+Do not automatically respond to sensitive, ambiguous, threatening, financial, legal, or complaint-related messages unless an explicitly safe and approved rule permits it.
+
+The integration layer must respect the permissions and limitations of each platform. Do not fabricate access to private messages or unsupported conversation endpoints.
+
+## 10. Analytics and reporting
+
+Create a detailed analytics page with clean interactive charts and actionable summaries.
+
+Metrics:
+- Reach.
+- Impressions.
+- Follower growth.
+- Engagement rate.
+- Likes.
+- Comments.
+- Shares.
+- Video views where available.
+- Top-performing posts.
+- Publishing consistency.
+- Platform-level performance.
+
+Include:
+- Date-range selection.
+- TikTok versus Facebook comparison.
+- Daily and weekly trends.
+- Best-performing content table.
+- Top posts by reach and engagement.
+- Growth over time.
+- Download CSV.
+- Google Sheets export.
+
+Only display metrics actually available from the relevant authorized platform endpoints. Clearly indicate unsupported metrics, missing permissions, and unavailable historical data.
+
+Implement a server-side analytics service that retrieves available metrics, normalizes them into a common schema, stores timestamped snapshots, and generates reports.
+
+### CSV export
+
+Implement a real CSV download containing:
+Date, Platform, Account, Post ID, Post URL, Caption, Reach, Impressions, Likes, Comments, Shares, Video Views, Followers, Engagement Rate, and Status.
+
+Use blank or explicitly unavailable values where the platform does not provide a metric. Never invent actual performance numbers.
+
+### Google Sheets integration
+
+Provide a configurable Google Sheets integration using secure OAuth or an appropriately configured Google service account on the server.
+
+Allow the user to:
+- Connect a Google account.
+- Select or configure a spreadsheet.
+- Choose a worksheet.
+- Export the current report.
+- Append new analytics snapshots.
+- View the last successful export.
+- Retry failed exports.
+
+If Google credentials are unavailable, keep CSV export functional and show clear setup instructions for Google Sheets.
+
+## 11. Automation rules
+
+Build an Automation Rules page where users can manage the overall social media workflow.
+
+Provide controls for:
+- Daily publishing enabled or disabled.
+- TikTok publishing schedule.
+- Facebook publishing schedule.
+- Platform-specific time zones.
+- Content queue behavior.
+- Retry policy.
+- Engagement polling frequency.
+- Automated response mode.
+- Analytics sync frequency.
+- Report export schedule.
+- Failure notifications.
+- Human-review requirements.
+
+Provide a schedule editor supporting different publishing times for each platform and different schedules for each day of the week.
+
+Allow the user to enable or disable individual rules.
+
+Persist settings in the backend and apply them to the relevant workers.
+
+Display:
+- Last execution.
+- Next execution.
+- Success count.
+- Failure count.
+- Recent execution history.
+
+Use proper job locking, idempotency, retry limits, and error logging to avoid duplicate posts or duplicate replies.
+
+Do not promise exact real-time execution when the platform API or scheduler cannot guarantee it.
+
+## 12. Response template management
+
+Create a dedicated template library.
+
+Include editable templates for:
+- General inquiries.
+- Product or service questions.
+- Pricing inquiries.
+- Business hours.
+- Positive comments.
+- Partnership inquiries.
+- Complaints requiring human review.
+- Fallback responses.
+
+Each template should support:
+- Name.
+- Message body.
+- Associated keywords.
+- Applicable platform.
+- Automatic or approval-required mode.
+- Enabled or disabled status.
+- Last updated timestamp.
+
+Allow adding, editing, duplicating, and deleting templates.
+
+Support safe placeholders such as {{first_name}} only when the corresponding data is actually available.
+
+Include a live preview of the response.
+
+## 13. Activity logs and reliability
+
+Create an activity log page containing:
+- Scheduled jobs.
+- Publishing attempts.
+- Successful publishing results.
+- Failed publishing attempts.
+- Engagement syncs.
+- Replies sent.
+- Replies awaiting approval.
+- Analytics syncs.
+- Export results.
+- API errors.
+
+Each record should include a timestamp, platform, action, status, and readable details.
+
+Include filters and a detail drawer for troubleshooting.
+
+Provide retry actions only for retryable failures and protect against duplicate posts and replies.
+
+Store enough information to demonstrate successful operation during client handover.
+
+## 14. Settings and onboarding
+
+Create a clean onboarding experience for first-time users.
+
+Steps:
+1. Introduce the workspace.
+2. Connect TikTok.
+3. Connect Facebook.
+4. Configure the daily posting schedule.
+5. Add initial content.
+6. Configure reply templates.
+7. Configure analytics export.
+8. Run a connection and workflow readiness check.
+
+Allow skipping optional steps and revisiting onboarding later.
+
+Settings should include:
+- Workspace information.
+- Time zone.
+- Notification preferences.
+- Integration settings.
+- Data export preferences.
+- Automation defaults.
+- API configuration status.
+
+Provide clear empty states and contextual guidance.
+
+## 15. Backend architecture and data models
+
+Create clean, reusable modules rather than placing all logic in one component.
+
+Suggested modules:
+
+- authService
+- tiktokService
+- metaService
+- contentService
+- publishingService
+- schedulingService
+- engagementService
+- replyRulesService
+- aiReplyService
+- analyticsService
+- googleSheetsService
+- notificationService
+- activityLogService
+
+Suggested data models:
+
+User
+Workspace
+ConnectedAccount
+ContentPost
+PostTarget
+ScheduledJob
+Conversation
+EngagementMessage
+ReplyRule
+ReplyTemplate
+AnalyticsSnapshot
+ExportJob
+AutomationSetting
+ActivityLog
+
+Use appropriate IDs, timestamps, relationships, indexes, validation, and status enums.
+
+Provide API endpoints for:
+- Accounts.
+- Content.
+- Scheduling.
+- Publishing.
+- Engagement.
+- Reply rules.
+- Templates.
+- Analytics.
+- Exports.
+- Automation settings.
+- Activity logs.
+
+Use secure authentication and authorization when supported. Restrict workspace data to authorized users.
+
+Never store secrets in source-controlled configuration files.
+
+## 16. Configuration and deployment
+
+Provide a .env.example file with placeholder values for:
+
+- Application environment.
+- Database connection.
+- Session or authentication secrets.
+- TikTok client credentials.
+- Meta app credentials.
+- AI provider credentials.
+- Google Sheets integration credentials.
+- OAuth callback URLs.
+- Scheduler configuration.
+
+Do not include real credentials.
+
+Provide editable configuration files for:
+- Daily posting times.
+- Platform-specific schedules.
+- Retry limits.
+- Reply policies.
+- Analytics sync intervals.
+- Export destinations.
+
+Document the installation, local development, database setup, OAuth configuration, API permissions, scheduler startup, and deployment steps.
+
+Use persistent background workers for scheduled publishing, engagement synchronization, and analytics jobs.
+
+## 17. Demo mode and testability
+
+The application must be impressive and usable immediately, even before API credentials are configured.
+
+Implement a clearly labeled demo mode with realistic sample accounts, posts, messages, automation rules, and analytics.
+
+In demo mode:
+- Create, edit, schedule, and delete sample posts.
+- Change publishing schedules.
+- Add and edit response rules.
+- Simulate incoming comments and messages.
+- Generate suggested responses.
+- Flag conversations for review.
+- View analytics charts.
+- Download a functional CSV.
+- Demonstrate a simulated publishing workflow.
+- View activity logs.
+- Configure sample export settings.
+
+Persist demo data locally or in the configured database, so refreshing the page does not erase the user's work.
+
+Clearly distinguish demo actions from actual external platform actions.
+
+Add a “Run Readiness Check” workflow that verifies the configured database, connected accounts, permissions, scheduler status, content readiness, and export configuration.
+
+Create a handover verification panel showing:
+- Account connection status.
+- Publishing readiness.
+- First scheduled post.
+- Engagement capture readiness.
+- Analytics export readiness.
+- Most recent job results.
+
+Include a repeatable test plan for validating the first real post, engagement capture, and analytics report on both platforms.
+
+## 18. Acceptance criteria
+
+The completed application must satisfy the following requirements:
+
+1. The interface renders correctly and looks polished on desktop and mobile.
+2. Every navigation item opens the correct page.
+3. Users can create, edit, save, schedule, reschedule, and delete content.
+4. Daily posting schedules are configurable independently for TikTok and Facebook.
+5. The backend can persist scheduled jobs and process them without the browser remaining open.
+6. Platform publishing is implemented through supported official APIs when configured.
+7. Incoming comments and supported direct messages can be synchronized from connected accounts.
+8. Reply templates and keyword rules can be configured and tested.
+9. Human-review actions work and persist.
+10. Analytics charts respond to filters and display the correct dataset.
+11. CSV export produces a valid downloadable file.
+12. Google Sheets export works when correctly configured.
+13. Activity logs record workflow outcomes and failures.
+14. Demo mode is clearly distinguished from real operations.
+15. Missing permissions and credentials produce actionable error messages.
+16. No interactive controls are decorative or inert.
+17. The project includes documented setup instructions and a sample environment file.
+18. No feature falsely claims that a real post, reply, connection, or export succeeded.
+
+## 19. Implementation strategy
+
+Build the actual application, not just a description of it.
+
+Follow this sequence:
+
+Phase 1: Establish the React application, shared layout, navigation, design system, and responsive behavior.
+
+Phase 2: Implement the dashboard, content studio, publishing calendar, and persistent content state.
+
+Phase 3: Implement the unified inbox, configurable response templates, keyword rules, and human-review workflows.
+
+Phase 4: Implement analytics charts, CSV export, and the Google Sheets integration structure.
+
+Phase 5: Implement the official API integration layer, account connection states, server-side publishing jobs, and background workers.
+
+Phase 6: Implement settings, activity logs, onboarding, readiness checks, and documentation.
+
+Phase 7: Validate every workflow, fix runtime errors, verify responsive behavior, and refine visual details.
+
+If the environment supports multi-file editing, organize the code into sensible modules and components. Do not place the entire application in one giant file.
+
+Do not stop after generating the initial dashboard. Continue implementing the remaining pages and workflows until the acceptance criteria are met.
+
+If the output or generation environment imposes limits, prioritize a working, coherent end-to-end core and then continue with the remaining modules. Do not silently omit features.
+
+## 20. Final design quality checklist
+
+Before declaring completion, verify:
+
+- The visual hierarchy is consistent across pages.
+- Light theme colors have sufficient contrast.
+- Gradients are subtle and purposeful.
+- Charts have legends, tooltips, and useful labels.
+- Tables support empty, loading, and error states.
+- Forms validate user input.
+- Buttons provide clear feedback.
+- Modals and drawers can be closed properly.
+- Navigation and filters preserve application state.
+- Animations feel smooth and restrained.
+- No placeholder links or dead buttons remain.
+- No fake live data is presented as genuine.
+- No API credentials are exposed in the frontend.
+- No unsupported platform capability is represented as functional.
+- The application starts successfully and has clear setup instructions.
+
+Begin by building the complete application in the available environment. Make sensible implementation decisions independently, maintain a consistent premium design system, and test the important user flows before finishing.
+
+The final result should feel like a carefully crafted commercial SaaS product, not a template, not a wireframe, and not a static concept.
+
+Deliver the working React application and its supporting source files, not merely an explanation of how to build it.

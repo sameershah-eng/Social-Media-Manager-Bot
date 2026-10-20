@@ -1,0 +1,6 @@
+{
+  "name": "SocialFlow Studio",
+  "description": "Automated Social Media Management Platform for TikTok and Facebook with unified publishing, inbox automation, scheduling, and analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
